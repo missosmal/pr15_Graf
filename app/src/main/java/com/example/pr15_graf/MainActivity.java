@@ -31,4 +31,26 @@ public class MainActivity extends AppCompatActivity {
             mediaRecorder = null;
         }
     }
+
+    // Начало записи
+    public void recordStart(View v) {
+        try {
+            releaseRecorder(); // Останавливаем запись
+            File outFile = new File(fileName); // Создаём новый файл
+            if (outFile.exists()) { // если файл существует
+                outFile.delete(); // Удаляем файл
+            }
+
+            mediaRecorder = new MediaRecorder(); // Инициализируем MediaRecorder
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC); // Указываем AudioSource
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP); // указываем формат
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB); // Указываем encoder
+            mediaRecorder.setOutputFile(fileName); // указываем куда записывать информацию
+            mediaRecorder.prepare(); // Подготавливает рекордер к началу захвата и кодирования данных.
+            mediaRecorder.start(); // начинаем запись
+        } catch (Exception e) {
+            e.printStackTrace(); // Выводим стек ошибки
+        }
+    }
+
 }
