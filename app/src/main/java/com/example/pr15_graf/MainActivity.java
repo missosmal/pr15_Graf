@@ -80,5 +80,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace(); // Выводим стек ошибки
         }
     }
-
+    public void playStop(View v)
+    {
+        if (mediaPlayer != null)
+        {
+            mediaPlayer.stop();
+        }
+    }
 }
