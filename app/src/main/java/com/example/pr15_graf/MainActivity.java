@@ -1,13 +1,23 @@
 package com.example.pr15_graf;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,5 +96,12 @@ public class MainActivity extends AppCompatActivity {
         {
             mediaPlayer.stop();
         }
+    }
+    @Override
+    protected  void onDestroy()
+    {
+        super.onDestroy();
+        releasePlayer();
+        releaseRecorder();
     }
 }
