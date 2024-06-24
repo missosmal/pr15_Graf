@@ -10,6 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private MediaRecorder mediaRecorder;
+
+    private MediaPlayer mediaPlayer;
+
+    private String fileName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
