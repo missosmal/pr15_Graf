@@ -56,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
         if(mediaRecorder != null){
             mediaRecorder.stop();
         }
-    }
+
+        private void releasePlayer(){
+            if(mediaPlayer != null){
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
+        }    }
 }
