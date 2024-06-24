@@ -52,15 +52,33 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace(); // Выводим стек ошибки
         }
     }
-    public void recordStop(View v){
-        if(mediaRecorder != null){
+    public void recordStop(View v)
+    {
+        if (mediaRecorder != null)
+        {
             mediaRecorder.stop();
         }
+    }
 
-        private void releasePlayer(){
-            if(mediaPlayer != null){
-                mediaPlayer.release();
-                mediaPlayer = null;
-            }
-        }    }
+    private void releasePlayer()
+    {
+        if(mediaPlayer != null)
+        {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    public void playStart(View v) {
+        try {
+            releasePlayer(); // Останавливаем воспроизведение
+            mediaPlayer = new MediaPlayer(); // Инициализируем новый плеер
+            mediaPlayer.setDataSource(fileName); // Подаём на вход файл для воспроизведения
+            mediaPlayer.prepare(); // подготавливает плеер к началу захвата и кодирования данных.
+            mediaPlayer.start(); // Начинаем воспроизведение
+        } catch (Exception e) {
+            e.printStackTrace(); // Выводим стек ошибки
+        }
+    }
+
 }
