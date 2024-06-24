@@ -52,5 +52,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace(); // Выводим стек ошибки
         }
     }
-
+    public void recordStop(View v){
+        if(mediaRecorder != null){
+            mediaRecorder.stop();
+        }
+    }
 }
